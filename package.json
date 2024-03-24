@@ -1,0 +1,18 @@
+{
+  "name": "simple-cli-calculator",
+  "version": "1.0.0",
+  "description": "A simple Calculator Created with TypeScript, Node.js, Inquirer",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rameez Ramzy",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.2.16"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
+}
