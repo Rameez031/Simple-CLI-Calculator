@@ -23,3 +23,6 @@ else if (answer.operator === "Multiplication") {
 else if (answer.operator === "Division") {
     console.log(answer.firstNumber / answer.secondNumber);
 }
+else {
+    console.log('Please select valid operator');
+}
