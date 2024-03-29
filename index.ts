@@ -1,27 +1,47 @@
-import inquirer from "inquirer";
+#! /usr/bin/env node
 
-const answer = await inquirer.prompt([
-  { message: "Enter first number", type: "input", name: "firstNumber" },
-  { message: "Enter Second number", type: "input", name: "secondNumber" },
+import inquirer from "inquirer";
+import chalk from "chalk";
+
+const answer = await inquirer.prompt ([
   {
-    message: "Select any operator for perform Calculation",
+    message: chalk.red(chalk.bgYellowBright("Enter first number\n")),
+    type: "number",
+    name: "firstNumber",
+  },
+  {
+    message: chalk.red(
+      chalk.bgYellowBright("Select any operator for perform Calculation\n")
+    ),
     type: "list",
     name: "operator",
-    choices: ["Addition", "Substraction", "Multiplication", "Division"],
+    choices: [
+      "Addition",
+      "Substraction",
+      "Multiplication",
+      "Division",
+      "Modulus",
+    ],
+  },
+  {
+    message: chalk.red(chalk.bgYellowBright("Enter second number\n")),
+    type: "number",
+    name: "secondNumber",
   },
 ]);
 
-const firstNumber = parseFloat(answer.firstNumber);
-const secondNumber = parseFloat(answer.secondNumber);
+chalk.bgYellow(answer);
 
-if (answer.operator.includes("Addition")) {
-  console.log(answer.firstNumber + answer.secondNumber);
+if (answer.operator === "Addition") {
+  console.log(chalk.bgMagentaBright(answer.firstNumber + answer.secondNumber));
 } else if (answer.operator === "Substraction") {
-  console.log(answer.firstNumber - answer.secondNumber);
+  console.log(chalk.bgMagentaBright(answer.firstNumber - answer.secondNumber));
 } else if (answer.operator === "Multiplication") {
-  console.log(answer.firstNumber * answer.secondNumber);
+  console.log(chalk.bgMagentaBright(answer.firstNumber * answer.secondNumber));
 } else if (answer.operator === "Division") {
-  console.log(answer.firstNumber / answer.secondNumber);
+  console.log(chalk.bgMagentaBright(answer.firstNumber / answer.secondNumber));
+} else if (answer.operator === "Modulus") {
+  console.log(chalk.bgMagentaBright(answer.firstNumber % answer.secondNumber));
 } else {
   console.log("Please select valid operator");
 }
